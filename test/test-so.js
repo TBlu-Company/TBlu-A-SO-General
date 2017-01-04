@@ -4,48 +4,36 @@ const core = require('../index.js');
 
 describe('mSOName', function() {
     it('get mSOName', function(done) {
-
         let data = {};
         data['moduleFunction'] = "mSOName";
-        core.run(data, function(err, data) {
-            if (err) {
-                throw new Error(err);
-            } else {
-                console.log(data)
-                done();
-            }
+        core.run(data).then(result => {
+            done();
+        }).catch(error => {
+            done(error);
         });
     });
 });
 
-describe('mSOVersion', function() {
-    it('get mSOVersion', function(done) {
-
+describe('mSORelease', function() {
+    it('get mSORelease', function(done) {
         let data = {};
-        data['moduleFunction'] = "mSOVersion";
-        core.run(data, function(err, data) {
-            if (err) {
-                throw new Error(err);
-            } else {
-                console.log(data)
-                done();
-            }
+        data['moduleFunction'] = "mSORelease";
+        core.run(data).then(result => {
+            done();
+        }).catch(error => {
+            done(error);
         });
     });
 });
 
 describe('mSOPlatform', function() {
     it('get mSOPlatform', function(done) {
-
         let data = {};
         data['moduleFunction'] = "mSOPlatform";
-        core.run(data, function(err, data) {
-            if (err) {
-                throw new Error(err);
-            } else {
-                console.log(data)
-                done();
-            }
+        core.run(data).then(result => {
+            done();
+        }).catch(error => {
+            done(error);
         });
     });
 });

@@ -2,59 +2,62 @@
 
 const core = require('../index.js');
 
-describe('ping - localhost', function() {
-    it('try - localhost', function(done) {
-
+describe('mPing', function() {
+    it('try - 127.0.0.1', function(done) {
         let data = {};
         data['moduleFunction'] = "mPing";
         data['parameter'] = {
-            host: 'localhost'
+            host: '127.0.0.1'
         };
-        core.run(data, function(err, data) {
-            if (err) {
-                throw new Error(err);
-            } else {
-                console.log(data)
-                done();
-            }
+        core.run(data).then(result => {
+            done();
+        }).catch(error => {
+            done(error);
         });
     });
 });
 
-
-describe('ping - localhost', function() {
-    it('try - localhost', function(done) {
+describe('mPing', function() {
+    it('try - unknow host', function(done) {
         let data = {};
         data['moduleFunction'] = "mPing";
         data['parameter'] = {
             host: '127.0.0.0'
         };
-        core.run(data, function(err, data) {
-            if (err) {
-                console.log(data);
-                done()
-            } else {
-                throw new Error(err);
-            }
+        core.run(data).then(result => {
+            done();
+        }).catch(error => {
+            done(error);
         });
     });
 });
 
+describe('mPing', function() {
+    it('try - DNS - localhost', function(done) {
+        let data = {};
+        data['moduleFunction'] = "mPing";
+        data['parameter'] = {
+            host: 'localhost'
+        };
+        core.run(data).then(result => {
+            done();
+        }).catch(error => {
+            done(error);
+        });
+    });
+});
 
-describe('ping - google', function() {
-    it('try - google', function(done) {
+describe('mPing', function() {
+    it('try - DNS - External Host', function(done) {
         let data = {};
         data['moduleFunction'] = "mPing";
         data['parameter'] = {
             host: 'google.com.br'
         };
-        core.run(data, function(err, data) {
-            if (err) {
-                throw new Error(err);
-            } else {
-                console.log(data)
-                done();
-            }
+        core.run(data).then(result => {
+            done();
+        }).catch(error => {
+            done(error);
         });
     });
 });
