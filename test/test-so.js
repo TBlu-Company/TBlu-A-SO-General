@@ -45,3 +45,16 @@ describe('mOSHostname', function() {
         });
     });
 });
+
+describe('mOSMemory', function() {
+    it('get mOSMemory', function(done) {
+        let data = {};
+        data['moduleFunction'] = "mOSMemory";
+        core.run(data).then(result => {
+            console.log(result);
+            done();
+        }).catch(error => {
+            done(error);
+        });
+    });
+});
