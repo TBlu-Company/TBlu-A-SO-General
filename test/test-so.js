@@ -58,3 +58,16 @@ describe('mOSMemory', function() {
         });
     });
 });
+
+describe('mOSNetwork', function() {
+    it('get mOSNetwork', function(done) {
+        let data = {};
+        data['moduleFunction'] = "mOSNetwork";
+        core.run(data).then(result => {
+            console.log(result);
+            done();
+        }).catch(error => {
+            done(error);
+        });
+    });
+});
