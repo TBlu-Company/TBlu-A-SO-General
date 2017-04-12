@@ -59,10 +59,10 @@ describe('mOSMemory', function() {
     });
 });
 
-describe('mOSNetwork', function() {
-    it('get mOSNetwork', function(done) {
+describe('mOSNetworkInterfaces', function() {
+    it('get mOSNetworkInterfaces', function(done) {
         let data = {};
-        data['moduleFunction'] = "mOSNetwork";
+        data['moduleFunction'] = "mOSNetworkInterfaces";
         core.run(data).then(result => {
             console.log(result);
             done();
